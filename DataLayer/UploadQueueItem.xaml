@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1011,1478</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>996,1719</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UploadQueueItem_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -87,7 +87,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Verifies if the given datarow &quot;Animal' column contains &quot;dog&quot; or &quot;cat&quot;. If it does, it will be uploaded as a queue item, otherwise will throw a BRE." DisplayName="UploadQueueItem" sap:VirtualizedContainerService.HintSize="512,1413" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Verifies if the given datarow &quot;Animal' column contains &quot;dog&quot; or &quot;cat&quot;. If it does, it will be uploaded as a queue item, otherwise will throw a BRE." DisplayName="UploadQueueItem" sap:VirtualizedContainerService.HintSize="637,1654" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="animalList" />
       <Variable x:TypeArguments="x:String" Name="strAnimals" />
@@ -98,8 +98,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Upload Queue Item" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Uploading queue item..&quot;]" />
-    <Assign DisplayName="Assign Animal Values" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message - Upload Queue Item" sap:VirtualizedContainerService.HintSize="575,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Uploading queue item..&quot;]" />
+    <Assign DisplayName="Assign Animal Values" sap:VirtualizedContainerService.HintSize="575,114" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strAnimals]</OutArgument>
       </Assign.To>
@@ -107,7 +107,7 @@
         <InArgument x:TypeArguments="x:String">[in_Config("AllowedAnimals").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap2010:Annotation.AnnotationText="animalList(0) is &quot;dog&quot;&#xA;animalList(1) is &quot;cat&quot;" DisplayName="Get Animals as Array" sap:VirtualizedContainerService.HintSize="450,156" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap2010:Annotation.AnnotationText="animalList(0) is &quot;dog&quot;&#xA;animalList(1) is &quot;cat&quot;" DisplayName="Get Animals as Array" sap:VirtualizedContainerService.HintSize="575,156" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[animalList]</OutArgument>
       </Assign.To>
@@ -120,20 +120,58 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If Condition="[in_TransactionItem(&quot;Animal &quot;).ToString.ToLower.Contains(animalList(0)) or in_TransactionItem(&quot;Animal &quot;).ToString.ToLower.Contains(animalList(1))]" DisplayName="If Animal Column contains desired animal" sap:VirtualizedContainerService.HintSize="450,840" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_TransactionItem(&quot;Animal &quot;).ToString.ToLower.Contains(animalList(0)) or in_TransactionItem(&quot;Animal &quot;).ToString.ToLower.Contains(animalList(1))]" DisplayName="If Animal Column contains desired animal" sap:VirtualizedContainerService.HintSize="575,1081" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,305" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="541,546" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Default="[new Dictionary(of String, Object)]" Name="dictQueueItem" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item To Orchestrator" FolderPath="Api-POC" sap:VirtualizedContainerService.HintSize="354,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="Api-POC-Queue">
+          <ui:MultipleAssign DisplayName="Populate Dictionary to Uploas as Queue item" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[dictQueueItem("Name")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">[in_TransactionItem("Name")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[dictQueueItem("Email")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">[in_TransactionItem("Email")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[dictQueueItem("Animal")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">[in_TransactionItem("Animal ")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[dictQueueItem("SenderEmail")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">[in_SenderEmail]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item To Orchestrator" FolderPath="Api-POC" sap:VirtualizedContainerService.HintSize="479,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[dictQueueItem]" Priority="Normal" QueueType="Api-POC-Queue" Reference="[in_TransactionItem(&quot;Name&quot;).ToString + &quot; &quot; +in_TransactionItem(&quot;Animal &quot;).ToString]">
             <ui:AddQueueItem.ItemInformation>
-              <InArgument x:TypeArguments="x:String" x:Key="&quot;Name&quot;">[in_TransactionItem("Name").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="&quot;Email&quot;">[in_TransactionItem("Email").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="&quot;Animal&quot;">[in_TransactionItem("Animal ").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="&quot;Email Sender&quot;">[in_SenderEmail]</InArgument>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
             </ui:AddQueueItem.ItemInformation>
           </ui:AddQueueItem>
         </Sequence>

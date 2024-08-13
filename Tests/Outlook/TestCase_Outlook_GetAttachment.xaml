@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_Outlook_GetAttachment" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="996,1791" sap2010:WorkflowViewState.IdRef="TestCase_Outlook_GetAttachment_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_Outlook_GetAttachment" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="996,1964" sap2010:WorkflowViewState.IdRef="TestCase_Outlook_GetAttachment_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -85,19 +85,19 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCase_Outlook_GetAttachment" sap:VirtualizedContainerService.HintSize="658,1726" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCase_Outlook_GetAttachment" sap:VirtualizedContainerService.HintSize="658,1899" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
-      <Variable x:TypeArguments="s:String[]" Name="EmailList" />
-      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailMessage" />
-      <Variable x:TypeArguments="x:Boolean" Name="SenderNotInScope" />
-      <Variable x:TypeArguments="x:String" Name="SenderEmail" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="config" />
+      <Variable x:TypeArguments="s:String[]" Name="emailList" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mailMessage" />
+      <Variable x:TypeArguments="x:String" Name="senderEmail" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Start Test Get Attachment" sap:VirtualizedContainerService.HintSize="596,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Start test case for GetAttachment&quot;]" />
     <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="596,723" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -121,7 +121,6 @@
           <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="out_EmailMessage">[MailMessage]</OutArgument>
           <InArgument x:TypeArguments="s:String[]" x:Key="in_EmailList">[EmailList]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_SenderNotInScope">[SenderNotInScope]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
@@ -140,15 +139,12 @@
       </ui:InvokeWorkflowFile>
     </Sequence>
     <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="596,600" sap2010:WorkflowViewState.IdRef="Sequence_4">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Boolean" Name="Exists" />
-      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression with Operator" sap:VirtualizedContainerService.HintSize="534,223" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_1" Operator="Equality" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Sender Email Address" sap:VirtualizedContainerService.HintSize="534,223" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_1" Operator="Equality" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
         <uta:VerifyExpressionWithOperator.FirstExpression>
           <InArgument x:TypeArguments="x:String">[SenderEmail]</InArgument>
         </uta:VerifyExpressionWithOperator.FirstExpression>
@@ -156,10 +152,20 @@
           <InArgument x:TypeArguments="x:String">["vanessa.stan@fwfcompany.com"]</InArgument>
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>
-      <uta:VerifyControlAttribute AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Control Attribute" sap:VirtualizedContainerService.HintSize="534,266" sap2010:WorkflowViewState.IdRef="VerifyControlAttribute_1" Operator="Equality" OutputArgument="Exists" TakeScreenshotInCaseOfFailingAssertion="True" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyControlAttribute AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify if attachments were saved" sap:VirtualizedContainerService.HintSize="534,266" sap2010:WorkflowViewState.IdRef="VerifyControlAttribute_1" Operator="Equality" OutputArgument="Exists" TakeScreenshotInCaseOfFailingAssertion="True" TakeScreenshotInCaseOfSucceedingAssertion="False">
         <uta:VerifyControlAttribute.ActivityToTest>
           <ActivityAction>
-            <ui:FileExistsX DisplayName="Attachment file exists" Exists="[Exists]" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[Config(&quot;PathToSavedAttachments&quot;).ToString + &quot;Colegi.xlsx&quot;]" />
+            <ui:FileExistsX DisplayName="Attachment file exists" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[Config(&quot;PathToSavedAttachments&quot;).ToString + &quot;Colegi.xlsx&quot;]">
+              <ui:FileExistsX.Exists>
+                <OutArgument x:TypeArguments="x:Boolean">
+                  <VariableReference x:TypeArguments="x:Boolean">
+                    <VariableReference.Variable>
+                      <Variable x:TypeArguments="x:Boolean" x:Name="__ReferenceID0" Name="_autogenerated_Exists" />
+                    </VariableReference.Variable>
+                  </VariableReference>
+                </OutArgument>
+              </ui:FileExistsX.Exists>
+            </ui:FileExistsX>
           </ActivityAction>
         </uta:VerifyControlAttribute.ActivityToTest>
         <uta:VerifyControlAttribute.ArgumentsBridgeActivity>
@@ -167,11 +173,7 @@
             <uta:ArgumentsBridge sap2010:WorkflowViewState.IdRef="ArgumentsBridge_1">
               <uta:ArgumentsBridge.Input>
                 <InArgument x:TypeArguments="x:Object">
-                  <VariableValue x:TypeArguments="x:Object">
-                    <VariableValue.Variable>
-                      <Variable x:TypeArguments="x:Boolean" Name="_autogenerated_Exists" />
-                    </VariableValue.Variable>
-                  </VariableValue>
+                  <VariableValue x:TypeArguments="x:Object" Variable="{x:Reference __ReferenceID0}" />
                 </InArgument>
               </uta:ArgumentsBridge.Input>
             </uta:ArgumentsBridge>

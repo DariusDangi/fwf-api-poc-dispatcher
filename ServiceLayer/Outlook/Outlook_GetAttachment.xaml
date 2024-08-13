@@ -126,7 +126,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[currentMail.Attachments.Any(Function(x) x.Name = &quot;Colegi.xlsx&quot;)]" sap:VirtualizedContainerService.HintSize="530,1021" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[currentMail.Attachments.Any(Function(x) x.Name = &quot;Colegi.xlsx&quot;)]" DisplayName="If currentMail has any attachments named &quot;Colegi.xlsx&quot;" sap:VirtualizedContainerService.HintSize="530,1021" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,486" sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>

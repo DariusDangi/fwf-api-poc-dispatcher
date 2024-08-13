@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_SendMailOnBRE" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="996,1222" sap2010:WorkflowViewState.IdRef="TestCase_SendMailOnBRE_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_SendMailOnBRE" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="996,1675" sap2010:WorkflowViewState.IdRef="TestCase_SendMailOnBRE_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -90,23 +90,24 @@
       <AssemblyReference>UiPath.Testing</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCase_SendMailOnBRE" sap:VirtualizedContainerService.HintSize="558,1157" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCase_SendMailOnBRE" sap:VirtualizedContainerService.HintSize="558,1610" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
-      <Variable x:TypeArguments="ui:BusinessRuleException" Name="BusinessException" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="config" />
+      <Variable x:TypeArguments="ui:BusinessRuleException" Name="businessException" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Start Test Send Mail on BRE" sap:VirtualizedContainerService.HintSize="496,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="{x:Null}" Message="[&quot;Start Test Send Mail on BRE&quot;]" />
     <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="496,429" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InitAllSettings - Invoke Workflow File (Framework\InitAllSettings.xaml)" sap:VirtualizedContainerService.HintSize="434,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InitAllSettings - Invoke Workflow File (Framework\InitAllSettings.xaml)" sap:VirtualizedContainerService.HintSize="434,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
           <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
@@ -128,25 +129,37 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendMailOnBRE - Invoke Workflow File (ServiceLayer\SendMailOnBRE.xaml)" sap:VirtualizedContainerService.HintSize="388,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ServiceLayer\SendMailOnBRE.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendMailOnBRE - Invoke Workflow File (ServiceLayer\SendMailOnBRE.xaml)" sap:VirtualizedContainerService.HintSize="388,195" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ServiceLayer\SendMailOnBRE.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
           <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessException">[BusinessException]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="496,325" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="496,605" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listOfMails" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression with Operator" sap:VirtualizedContainerService.HintSize="388,214" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_1" Operator="Equality" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <ui:GetOutlookMailMessages Account="darius.dangi@fwfcompany.com" DisplayName="Get First Outlook Mail" Filter="{x:Null}" FilterByMessageIds="{x:Null}" GetAttachements="False" sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[listOfMails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" TimeoutMS="15000" Top="1" />
+      <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" ContinueOnFailure="True" DisplayName="Verify If BRE Message Match" sap:VirtualizedContainerService.HintSize="388,223" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_1" KeepScreenshots="{x:Null}" Operator="Equality" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
         <uta:VerifyExpressionWithOperator.FirstExpression>
           <InArgument x:TypeArguments="x:String">[BusinessException.Message]</InArgument>
         </uta:VerifyExpressionWithOperator.FirstExpression>
         <uta:VerifyExpressionWithOperator.SecondExpression>
           <InArgument x:TypeArguments="x:String">[Config("BRE2_Message").ToString]</InArgument>
+        </uta:VerifyExpressionWithOperator.SecondExpression>
+      </uta:VerifyExpressionWithOperator>
+      <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Mail Sender" sap:VirtualizedContainerService.HintSize="388,214" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_2" KeepScreenshots="{x:Null}" Operator="Equality" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+        <uta:VerifyExpressionWithOperator.FirstExpression>
+          <InArgument x:TypeArguments="x:String">[listOfMails(0).From.Address]</InArgument>
+        </uta:VerifyExpressionWithOperator.FirstExpression>
+        <uta:VerifyExpressionWithOperator.SecondExpression>
+          <InArgument x:TypeArguments="x:String">["darius.dangi@fwfcompany.com"]</InArgument>
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>
     </Sequence>

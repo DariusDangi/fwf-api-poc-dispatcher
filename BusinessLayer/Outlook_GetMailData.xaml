@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>996,756</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>996,929</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Outlook_GetMailData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -85,10 +85,9 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Outlook_GetMailData" sap:VirtualizedContainerService.HintSize="416,691" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Outlook_GetMailData" sap:VirtualizedContainerService.HintSize="416,864" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="emailList" />
-      <Variable x:TypeArguments="snm:MailMessage" Name="emailMessage" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mailMessages" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -96,6 +95,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Start GetMailData" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting mail data..&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Outlook_GetEmailList - Invoke Workflow File (ServiceLayer\Outlook\Outlook_GetEmailList.xaml)" sap:VirtualizedContainerService.HintSize="354,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ServiceLayer\Outlook\Outlook_GetEmailList.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="s:String[]" x:Key="out_EmailList">[emailList]</OutArgument>

@@ -3,7 +3,7 @@
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>996,1034</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>996,1356</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,20 +108,22 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="873,969" sap2010:WorkflowViewState.IdRef="Sequence_41">
+  <Sequence sap:VirtualizedContainerService.HintSize="873,1291" sap2010:WorkflowViewState.IdRef="Sequence_41">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:IfElseIfV2 Condition="[in_BusinessException IsNot Nothing And in_BusinessException.Message.Equals(in_Config(&quot;BRE1_Message&quot;).ToString)]" DisplayName="If BRE1 or BRE2" sap:VirtualizedContainerService.HintSize="811,881" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+    <ui:LogMessage DisplayName="Log Message - Start Checking BRE" sap:VirtualizedContainerService.HintSize="811,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Started checking BRE type.&quot;]" />
+    <ui:IfElseIfV2 Condition="[in_BusinessException IsNot Nothing And in_BusinessException.Message.Equals(in_Config(&quot;BRE1_Message&quot;).ToString)]" DisplayName="If BRE1 or BRE2" sap:VirtualizedContainerService.HintSize="811,1030" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
       <ui:IfElseIfV2.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_40">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_40">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message Not a BRE" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Not a specified BRE.&quot;]" />
         </Sequence>
       </ui:IfElseIfV2.Else>
       <ui:IfElseIfV2.ElseIfs>
@@ -134,7 +136,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Am intalnit urmatoarea eroare: Atasamentul nu este corect / nu exista! &#xA; &#xA;Multumesc!" DisplayName="Send Mail - BRE2 - Incorrect attachment" sap:VirtualizedContainerService.HintSize="354,169" sap2010:WorkflowViewState.IdRef="SendOutlookMail_5" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="FWF Dog API POC | Incorrect Attachment" To="darius.dangi@fwfcomapny.com">
+                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Am intalnit urmatoarea eroare: Atasamentul nu este corect / nu exista! &#xA; &#xA;Multumesc!" DisplayName="Send Mail - BRE2 - Incorrect attachment" sap:VirtualizedContainerService.HintSize="354,169" sap2010:WorkflowViewState.IdRef="SendOutlookMail_5" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="FWF Dog API POC | Incorrect Attachment" To="darius.dangi@fwfcompany.com">
                   <ui:SendOutlookMail.Files>
                     <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                   </ui:SendOutlookMail.Files>
