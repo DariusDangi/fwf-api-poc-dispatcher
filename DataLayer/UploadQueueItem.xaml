@@ -169,7 +169,7 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item To Orchestrator" FolderPath="Api-POC" sap:VirtualizedContainerService.HintSize="479,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[dictQueueItem]" Priority="Normal" QueueType="Api-POC-Queue" Reference="[in_TransactionItem(&quot;Name&quot;).ToString + &quot; &quot; +in_TransactionItem(&quot;Animal &quot;).ToString]">
+          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item To Orchestrator" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="479,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[dictQueueItem]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[in_TransactionItem(&quot;Name&quot;).ToString + &quot; &quot; +in_TransactionItem(&quot;Animal &quot;).ToString]">
             <ui:AddQueueItem.ItemInformation>
               <scg:Dictionary x:TypeArguments="x:String, InArgument" />
             </ui:AddQueueItem.ItemInformation>

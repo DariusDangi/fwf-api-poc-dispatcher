@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>996,1603</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>750,1603</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Outlook_GetAttachment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -126,7 +126,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[currentMail.Attachments.Any(Function(x) x.Name = &quot;Colegi.xlsx&quot;)]" DisplayName="If currentMail has any attachments named &quot;Colegi.xlsx&quot;" sap:VirtualizedContainerService.HintSize="530,1021" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[currentMail.Attachments.Any(Function(x) x.Name = in_Config(&quot;AttachmentName&quot;).ToString)]" DisplayName="If currentMail has any attachments named &quot;Colegi.xlsx&quot;" sap:VirtualizedContainerService.HintSize="530,1021" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,486" sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>
@@ -154,7 +154,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - Couldn't find any attachments" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Couldn't find any attachments with the given name.&quot;]" />
-                  <Throw DisplayName="Throw BRE2" Exception="[new BusinessRuleException(in_Config(&quot;BRE2_Message&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw DisplayName="Throw BRE2" Exception="[new BusinessRuleException(String.Format(in_Config(&quot;BRE2_Message&quot;).ToString,in_Config(&quot;AttachmentName&quot;).ToString))]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Else>
             </If>
