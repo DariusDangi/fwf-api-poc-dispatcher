@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>998,2705</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>998,2931</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Outlook_GetMail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -131,7 +131,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Here we retireve the email sent by our trainer." DisplayName="Outlook_GetMail" sap:VirtualizedContainerService.HintSize="596,2640" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Here we retireve the email sent by our trainer." DisplayName="Outlook_GetMail" sap:VirtualizedContainerService.HintSize="614,2866" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Default="[Nothing]" Name="outputEmail" />
     </Sequence.Variables>
@@ -141,8 +141,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Getting email" sap:VirtualizedContainerService.HintSize="534,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting email..&quot;]" />
-    <Assign DisplayName="Assign - out_EmailMessages default value" sap:VirtualizedContainerService.HintSize="534,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <ui:LogMessage DisplayName="Log Message - Getting email" sap:VirtualizedContainerService.HintSize="552,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting email..&quot;]" />
+    <Assign DisplayName="Assign - out_EmailMessages default value" sap:VirtualizedContainerService.HintSize="552,114" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[out_EmailMessage]</OutArgument>
       </Assign.To>
@@ -150,22 +150,15 @@
         <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[new List(Of System.Net.Mail.MailMessage)]</InArgument>
       </Assign.Value>
     </Assign>
-    <TryCatch DisplayName="Try Catch Get Email" sap:VirtualizedContainerService.HintSize="534,396" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch Get Email" sap:VirtualizedContainerService.HintSize="552,405" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[in_Config(&quot;OutlookInputEmailAddress&quot;).ToString]" DisplayName="Get Mail Message From Trainer" GetAttachements="False" sap:VirtualizedContainerService.HintSize="202,25" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="[in_Config(&quot;OutlookMailFolder&quot;).ToString]" MarkAsRead="False" Messages="[outputEmail]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Top="5" />
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[in_Config(&quot;OutlookInputEmailAddress&quot;).ToString]" DisplayName="Get Mail Message From Trainer" GetAttachements="False" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Inbox" MarkAsRead="False" Messages="[outputEmail]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Top="5" />
-        </Sequence>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -178,13 +171,13 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Sender Email" sap:VirtualizedContainerService.HintSize="534,1051" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_EmailList]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Sender Email" sap:VirtualizedContainerService.HintSize="552,1268" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_EmailList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentSender" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="500,905" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518,1122" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(snm:MailMessage)" Default="[new list(of MailMessage)]" Name="filteredMessages" />
             </Sequence.Variables>
@@ -193,9 +186,9 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch run Code" sap:VirtualizedContainerService.HintSize="438,425" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+            <TryCatch DisplayName="Try Catch run Code" sap:VirtualizedContainerService.HintSize="456,638" sap2010:WorkflowViewState.IdRef="TryCatch_4">
               <TryCatch.Try>
-                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Try&#xA;&#x9;out_filteredMessages = in_mailMessages.Where(Function(mail) mail.From.Address = in_currentSender).ToList()&#xA;Catch e As Exception&#xA;    Console.WriteLine(e)&#xA;End Try" DisplayName="Invoke Code - LINQ filter " sap:VirtualizedContainerService.HintSize="334,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_filteredMessages = new list(of MailMessage)&#xD;&#xA;out_filteredMessages = in_mailMessages.Where(Function(mail) mail.From.Address = in_currentSender).ToList()" DisplayName="Invoke Code - LINQ filter " sap:VirtualizedContainerService.HintSize="334,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                   <ui:InvokeCode.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_currentSender">
                       <VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentSender" />
@@ -210,10 +203,10 @@
                 </ui:InvokeCode>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,444" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -221,20 +214,28 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <ui:LogMessage DisplayName="Log Message - Error running the code" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[exception.InnerException.Message]" />
+                    <Sequence DisplayName="Logging and Throwing generated Exception" sap:VirtualizedContainerService.HintSize="416,374" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message - Error running the code" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[exception.InnerException.Message]" />
+                      <Throw DisplayName="Throw Error If invoke code doesn't work" Exception="[exception.InnerException]" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                    </Sequence>
                   </ActivityAction>
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <TryCatch DisplayName="Try Catch - Merge Filtered Messages" sap:VirtualizedContainerService.HintSize="438,392" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <TryCatch DisplayName="Try Catch - Merge Filtered Messages" sap:VirtualizedContainerService.HintSize="456,396" sap2010:WorkflowViewState.IdRef="TryCatch_3">
               <TryCatch.Try>
                 <uasc:MergeCollections x:TypeArguments="snm:MailMessage" Collection="[out_EmailMessage]" DisplayName="Merge Collections - Filtered Messages" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="MergeCollections`1_1" Result="[out_EmailMessage]" SecondCollection="[filteredMessages]" />
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -251,7 +252,7 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <If Condition="[outputEmail.Count = 0]" DisplayName="If outputEmail is Nothing" sap:VirtualizedContainerService.HintSize="530,787" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[outputEmail.Count = 0]" DisplayName="If outputEmail is Nothing" sap:VirtualizedContainerService.HintSize="552,787" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,374" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
